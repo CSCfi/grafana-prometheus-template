@@ -70,7 +70,7 @@ If your application uses no authentication, you can add a new monitoring target 
   - targets: ['<URL>']
     labels:
       <label name>: '<label value>'
-  metrics_path: '<path/to/metrics (defaut: /metrics)>'
+  metrics_path: '<path/to/metrics (default: /metrics)>'
   scheme: '<scheme (default: http)>'
 ```
 
@@ -84,7 +84,7 @@ If your application is using basic auth, you can use:
   - targets: ['<URL>']
     labels:
       <label name>: '<label value>'
-  metrics_path: '<path/to/metrics (defaut: /metrics)>'
+  metrics_path: '<path/to/metrics (default: /metrics)>'
   scheme: '<scheme (default: http)>'
   basic_auth:
     username: '<username>'
@@ -102,7 +102,7 @@ If your application uses token authorization with HTTP headers, you can use:
   - targets: ['<URL>']
     labels:
       <label name>: '<label value>'
-  metrics_path: '<path/to/metrics (defaut: /metrics)>'
+  metrics_path: '<path/to/metrics (default: /metrics)>'
   scheme: '<scheme (default: http)>'
   authorization:
     type: '<type (default: Bearer)>'
@@ -123,4 +123,4 @@ On Rahti-int you can do this with:
 $ oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.166.25.134'
 ```
 
-**Note: Doing this will allow connections from all Rahti namespaces, contact Rahti admins if you want a specific egress IP for your namespace.**
+**Note: Doing this will allow connections from all Rahti namespaces. Contact Rahti admins if you want a specific egress IP for your namespace.**
