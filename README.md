@@ -70,7 +70,8 @@ If your application uses no authentication, you can add a new monitoring target 
   - targets: ['<URL>']
     labels:
       <label name>: '<label value>'
-  metrics_path: '<path/to/metrics>'
+  metrics_path: '<path/to/metrics (defaut: /metrics)>'
+  scheme: '<scheme (default: http)>'
 ```
 
 
@@ -83,7 +84,8 @@ If your application is using basic auth, you can use:
   - targets: ['<URL>']
     labels:
       <label name>: '<label value>'
-  metrics_path: '<path/to/metrics>'
+  metrics_path: '<path/to/metrics (defaut: /metrics)>'
+  scheme: '<scheme (default: http)>'
   basic_auth:
     username: '<username>'
     password: '<password>'
@@ -100,9 +102,10 @@ If your application uses token authorization with HTTP headers, you can use:
   - targets: ['<URL>']
     labels:
       <label name>: '<label value>'
-  metrics_path: '<path/to/metrics>'
+  metrics_path: '<path/to/metrics (defaut: /metrics)>'
+  scheme: '<scheme (default: http)>'
   authorization:
-    type: '<type>'
+    type: '<type (default: Bearer)>'
     credentials: '<secret>'
 ```
-Is is also possible to store the credentials in a file. Use `credentials_file: '<path/to/file>'` and mount a secret to the Prometheus deployment with the file as data.
+It is also possible to store the credentials in a file. Use `credentials_file: '<path/to/file>'` and mount a secret to the Prometheus deployment with the file as data.
