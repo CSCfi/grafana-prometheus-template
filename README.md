@@ -109,3 +109,18 @@ If your application uses token authorization with HTTP headers, you can use:
     credentials: '<secret>'
 ```
 It is also possible to store the credentials in a file. Use `credentials_file: '<path/to/file>'` and mount a secret to the Prometheus deployment with the file as data.
+
+#### IP whitelisting on Rahti
+If your applications are running in Rahti, it is advisable to use IP whitelisting to allow connections to your monitoring targets from Rahti only. 
+
+On Rahti, you can do this with:
+```bash
+$ oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.167.189.25'
+```
+
+On Rahti-int you can do this with:
+```bash
+$ oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.166.25.134'
+```
+
+**Note: Doing this will allow connections from all Rahti namespaces, contact Rahti admins if you want a specific egress IP for your namespace.**
